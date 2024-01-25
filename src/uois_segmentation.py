@@ -3,14 +3,23 @@ import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
 import cv2
+import os 
+import sys
 
 from abc import ABC, abstractmethod
 
+script_dir = os.path.dirname(os.path.realpath(__file__))
+parent_dir = os.path.join(script_dir, os.pardir, os.pardir)
+uois_util = os.path.join(parent_dir, 'uois/src/util')
+uois_src = os.path.join(parent_dir, 'uois/src')
+sys.path.append(uois_util)
+sys.path.append(uois_src)
+
 # my libraries
-from .util import utilities as util_
-from . import networks
-from . import losses
-from . import cluster
+import utilities as util_
+import networks
+import losses
+import cluster
 
 BACKGROUND_LABEL = 0
 TABLE_LABEL = 1

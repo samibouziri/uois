@@ -1,10 +1,17 @@
 import numpy as np
 import torch
+import os
+import sys
 
 from abc import ABC, abstractmethod
 
+script_dir = os.path.dirname(os.path.realpath(__file__))
+parent_dir = os.path.join(script_dir, os.pardir, os.pardir)
+uois_util = os.path.join(parent_dir, 'uois/src/util')
+sys.path.append(uois_util)
+
 # my libraries
-from .util import utilities as util_
+import utilities as util_
 
 
 ### Mean-Shift Clustering (PyTorch) ###

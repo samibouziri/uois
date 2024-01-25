@@ -1,8 +1,16 @@
 import torch
 import torch.nn as nn
+import os
+import sys
 
+script_dir = os.path.dirname(os.path.realpath(__file__))
+parent_dir = os.path.join(script_dir, os.pardir, os.pardir)
+uois_src = os.path.join(parent_dir, 'uois/src')
+sys.path.append(uois_src)
+
+import utilities as uois_utils
 # My libraries
-from . import cluster
+import cluster
 
 BACKGROUND_LABEL = 0
 TABLE_LABEL = 1
